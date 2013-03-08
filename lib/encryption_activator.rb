@@ -31,7 +31,7 @@ module EncryptionActivator
     end
 
     def keyproc
-      lambda {|*opts| @key || raise(EncryptionActivator::KeyNotSetException.new("Key not set!")) }
+      lambda {|*opts| @key || ENV['ENCRYPTION_ACTIVATOR_KEY'] || raise(EncryptionActivator::KeyNotSetException.new("Key not set!")) }
     end
 
     def key

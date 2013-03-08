@@ -37,3 +37,5 @@ startup thread, you call this:
     EncryptionActivator.prompt
 
 After this, the app can read and write the encrypted fields.
+
+OR you can use the environment variable ENCRYPTION_ACTIVATOR_KEY

@@ -6,6 +6,7 @@ class TestEncryptionActivator < MiniTest::Unit::TestCase
 
   def setup
     EncryptionActivator.key = nil
+    ENV['ENCRYPTION_ACTIVATOR_KEY'] = nil
   end
 
   def test_key_entry_good
@@ -33,4 +34,10 @@ class TestEncryptionActivator < MiniTest::Unit::TestCase
     EncryptionActivator.key = 'flibble'
     assert_equal 'flibble', EncryptionActivator.key
   end  
+  
+  def test_key_env_var
+    ENV['ENCRYPTION_ACTIVATOR_KEY'] = 'flibble'
+    assert_equal 'flibble', EncryptionActivator.key
+  end  
+  
 end
